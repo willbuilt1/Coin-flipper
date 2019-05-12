@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Coin from './Coin';
+import './Flipper.css';
 
 
 class Flipper extends Component{
@@ -8,7 +10,7 @@ class Flipper extends Component{
             flips:0,
             heads:0,
             tails:0,
-            flipped:""
+            flipped:true
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -25,9 +27,9 @@ class Flipper extends Component{
         this.setState(incrementCounter);
 
         if(result === 0){
-            this.setState(curState => ({ heads: curState.heads + 1, flipped: curState.flipped = 0 }));
+            this.setState(curState => ({ heads: curState.heads + 1, flipped: curState.flipped = true }));
         } else{
-            this.setState(curState => ({ tails: curState.tails + 1, flipped: curState.flipped = 1 }));
+            this.setState(curState => ({ tails: curState.tails + 1, flipped: curState.flipped = false }));
         }
         
         console.log(this.state);
@@ -36,8 +38,9 @@ class Flipper extends Component{
 
     render(){
         return(
-            <div>
+            <div className = "Flipper">
                 <h1>Lets Flip a Coin</h1>
+                <Coin flipped = {this.state.flipped}/>
                 <button onClick={this.handleClick}>Flip Coin</button>
                 <p>You flipped {this.state.flips} times, {this.state.heads} have been heads and {this.state.tails} have been tails.</p>
             </div>

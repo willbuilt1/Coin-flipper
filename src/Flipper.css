@@ -1,0 +1,14 @@
+.Flipper button{
+    font-size: 18px;
+    background-color: #FF0000;
+    color: white;
+    font-weight: 700;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.Flipper button:hover{
+    background-color: rgb(158, 1, 1);
+}
